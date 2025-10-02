@@ -1,7 +1,7 @@
 ---
 title: "Lab 03: Descriptive Statistics and Visualization "
 author: Zelalem Fesseha
-date: "2025-09-24"
+date: "2025-09-29"
 date-format: "MMM DD, YYYY"
 execute:
   freeze: auto
@@ -398,14 +398,33 @@ There is website that host a collection of beautiful charts you might want to vi
 
 ```{r, echo=T, eval=T}
 #| label: r graph gallery replication 1
-
+#| # Transparency
+# library
+library(ggplot2)
+ 
+# The iris dataset is provided natively by R
+#head(iris)
+ 
+# basic scatterplot
+ggplot(cpsemployed, aes(x=age , y=hrslastwk)) + 
+    geom_point()
 ```
 
 *Visualization replication 2* \AddToHookNext{env/Highlighting/begin}{\small}
 
 ```{r, echo=T, eval=T}
 #| label: r graph gallery replication 2
+# Libraries
+library(ggplot2)
 
+# create data
+xValue <- 1:10
+yValue <- cumsum(rnorm(10))
+data <- data.frame(xValue,yValue)
+
+# Plot
+ggplot(cpsemployed, aes(wagehr, y=earnwk)) +
+  geom_line()
 ```
 
 # Wrapping up
@@ -441,7 +460,7 @@ To submit your assignment:
 # Grading
 
 | Component                                                          | Points |
-|:------------------------------------------------------|:----------------|
+|:-----------------------------------------------------|:-----------------|
 | Exercise 1                                                         | 5      |
 | Exercise 2                                                         | 5      |
 | Exercise 3                                                         | 80     |
